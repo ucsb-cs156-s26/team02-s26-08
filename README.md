@@ -17,7 +17,7 @@ TODO: Fill in this table with correct information.
 | UCSBOrganization          | Matthew      |matthewli10|
 | RecommendationRequest     |              |           |
 | MenuItemReview            |              |           |
-| HelpRequest               |              |           |
+| HelpRequest               | Christan     |ccabacungan|
 | Articles                  |              |           |
 
 Remember though, that in spite of these initial  assignments, it is still
