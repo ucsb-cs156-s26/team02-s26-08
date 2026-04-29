@@ -15,10 +15,10 @@ TODO: Fill in this table with correct information.
 |---------------------------|--------------|-----------|
 | UCSBDiningCommonsMenuItem | Wendy        | CMWENDY   |
 | UCSBOrganization          | Matthew      |matthewli10|
-| RecommendationRequest     |              |           |
-| MenuItemReview            |              |           |
-| HelpRequest               | Christan     |ccabacungan|
-| Articles                  |              |           |
+| RecommendationRequest     |    Ria       |riasingh455|
+| MenuItemReview            |   Anjali     |  dev-anj  |
+| HelpRequest               |   Christan   |ccabacungan|
+| Articles                  |   Taedon     | taedonreth|
 
 Remember though, that in spite of these initial  assignments, it is still
 a team project.  Please help other team members to finish their work
