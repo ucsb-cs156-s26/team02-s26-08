@@ -1,6 +1,6 @@
 import React from "react";
 import UCSBDatesTable from "main/components/UCSBDates/UCSBDatesTable";
-import { ucsbDatesFixtures } from "fixtures/ucsbDatesFixtures";
+import { ucsbDatesFixtures } from "fixtures/recommendRequests";
 import { currentUserFixtures } from "fixtures/currentUserFixtures";
 import { http, HttpResponse } from "msw";
 

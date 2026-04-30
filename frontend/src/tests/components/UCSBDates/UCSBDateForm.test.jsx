@@ -1,6 +1,6 @@
 import { render, waitFor, fireEvent, screen } from "@testing-library/react";
 import UCSBDateForm from "main/components/UCSBDates/UCSBDateForm";
-import { ucsbDatesFixtures } from "fixtures/ucsbDatesFixtures";
+import { ucsbDatesFixtures } from "fixtures/recommendRequests";
 import { BrowserRouter as Router } from "react-router";
 import { expect } from "vitest";
 
