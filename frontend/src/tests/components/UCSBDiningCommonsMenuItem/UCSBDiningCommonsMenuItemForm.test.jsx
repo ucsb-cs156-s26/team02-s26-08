@@ -6,7 +6,6 @@ import { ucsbDiningCommonsMenuItemFixtures } from "fixtures/ucsbDiningCommonsMen
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-
 const mockedNavigate = vi.fn();
 vi.mock("react-router", async () => {
   const originalModule = await vi.importActual("react-router");
