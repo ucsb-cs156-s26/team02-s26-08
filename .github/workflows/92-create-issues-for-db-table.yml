@@ -133,7 +133,7 @@ jobs:
         with:
           token: ${{ github.token }}
           labels: "${{env.name}}"
-          title: Copy files for Backend CRUD API `${{env.name}}` from ${{env.ASSIGNMENT}}
+          title: Copy files for Backend CRUD API `${{env.name}}` from ${{env.PREV_ASSIGNMENT}}
           body: |
 
             # Dependencies
