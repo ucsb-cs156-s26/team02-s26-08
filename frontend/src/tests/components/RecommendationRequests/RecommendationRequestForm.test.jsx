@@ -17,6 +17,7 @@ vi.mock("react-router", async () => {
 
 describe("RestaurantForm tests", () => {
   const queryClient = new QueryClient();
+  const testId = "RecommendationRequestForm";
 
   const expectedHeaders = [
     "requesterEmail",
@@ -26,7 +27,6 @@ describe("RestaurantForm tests", () => {
     "dateNeeded",
     "done",
   ];
-  const testId = "RecommendationRequestForm";
 
   test("renders correctly with no initialContents", async () => {
     render(
@@ -43,6 +43,13 @@ describe("RestaurantForm tests", () => {
       const header = screen.getByText(headerText);
       expect(header).toBeInTheDocument();
     });
+    expect(screen.getByTestId(`${testId}-requesterEmail`)).toBeInTheDocument();
+    expect(screen.getByTestId(`${testId}-professorEmail`)).toBeInTheDocument();
+    expect(screen.getByTestId(`${testId}-explanation`)).toBeInTheDocument();
+    expect(screen.getByTestId("DateRequestedForm")).toBeInTheDocument();
+    expect(screen.getByTestId("DateNeededForm")).toBeInTheDocument();
+    expect(screen.getByTestId(`${testId}-done`)).toBeInTheDocument();
+    expect(screen.getByTestId(`${testId}-submit`)).toBeInTheDocument();
   });
 
   test("renders correctly when passing in initialContents", async () => {
@@ -62,7 +69,7 @@ describe("RestaurantForm tests", () => {
       const header = screen.getByText(headerText);
       expect(header).toBeInTheDocument();
     });
-
+  
     expect(await screen.findByTestId(`${testId}-id`)).toBeInTheDocument();
     expect(screen.getByText(`Id`)).toBeInTheDocument();
   });
@@ -93,7 +100,7 @@ describe("RestaurantForm tests", () => {
     );
 
     expect(await screen.findByText(/Create/)).toBeInTheDocument();
-    const submitButton = screen.getByText(/Create/);
+    const submitButton = screen.getByTestId(`${testId}-submit`);
     fireEvent.click(submitButton);
 
     await screen.findByText(/requesterEmail is required/);
