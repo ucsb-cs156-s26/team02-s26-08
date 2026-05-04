@@ -27,10 +27,15 @@ Default.parameters = {
       });
     }),
     http.post("/api/recommendationrequests/post", () => {
-      return HttpResponse.json(recommendRequestsFixtures.oneRecommendRequest, { status: 200 });
+      return HttpResponse.json(recommendRequestsFixtures.oneRecommendRequest, {
+        status: 200,
+      });
     }),
     http.post("/api/recommendationrequests/all", () => {
-      return HttpResponse.json(recommendRequestsFixtures.threeRecommendRequests, { status: 200 });
+      return HttpResponse.json(
+        recommendRequestsFixtures.threeRecommendRequests,
+        { status: 200 },
+      );
     }),
   ],
 };
