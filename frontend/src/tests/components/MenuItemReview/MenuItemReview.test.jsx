@@ -102,6 +102,13 @@ describe("MenuItemReviewForm tests", () => {
     expect(screen.getByText(/Comments is required/)).toBeInTheDocument();
 
     const starsInput = screen.getByTestId(`${testId}-stars`);
+    fireEvent.change(starsInput, { target: { value: "0" } });
+    fireEvent.click(submitButton);
+
+    await waitFor(() => {
+      expect(screen.getByText(/Stars must be at least 1/)).toBeInTheDocument();
+    });
+
     fireEvent.change(starsInput, { target: { value: "6" } });
     fireEvent.click(submitButton);
 
