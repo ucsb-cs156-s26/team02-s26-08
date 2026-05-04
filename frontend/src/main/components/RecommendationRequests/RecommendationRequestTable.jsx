@@ -49,20 +49,20 @@ export default function RecommendationRequestTable({
       accessorKey: "professorEmail",
     },
     {
-        header: "explanation",
-        accessorKey: "explanation",
+      header: "explanation",
+      accessorKey: "explanation",
     },
     {
-        header: "dateRequested",
-        accessorKey: "dateRequested",
+      header: "dateRequested",
+      accessorKey: "dateRequested",
     },
     {
-        header: "dateNeeded",
-        accessorKey: "dateNeeded",
+      header: "dateNeeded",
+      accessorKey: "dateNeeded",
     },
     {
-        header: "done",
-        accessorKey: "done",
+      header: "done",
+      accessorKey: "done",
     },
   ];
 
@@ -74,6 +74,10 @@ export default function RecommendationRequestTable({
   }
 
   return (
-    <OurTable data={recommendationRequests} columns={columns} testid={testIdPrefix} />
+    <OurTable
+      data={recommendationRequests}
+      columns={columns}
+      testid={testIdPrefix}
+    />
   );
 }
