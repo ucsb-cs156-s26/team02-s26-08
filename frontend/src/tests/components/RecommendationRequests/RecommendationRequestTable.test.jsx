@@ -92,6 +92,28 @@ describe("RecommendationRequestTable tests", () => {
       expect(header).toBeInTheDocument();
     });
 
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent(
+      "1",
+    );
+    expect(
+      screen.getByTestId(`${testId}-cell-row-0-col-requesterEmail`),
+    ).toHaveTextContent("riasingh");
+    expect(
+      screen.getByTestId(`${testId}-cell-row-0-col-professorEmail`),
+    ).toHaveTextContent("riasingh");
+    expect(
+      screen.getByTestId(`${testId}-cell-row-0-col-explanation`),
+    ).toHaveTextContent("test");
+    expect(
+      screen.getByTestId(`${testId}-cell-row-0-col-dateRequested`),
+    ).toHaveTextContent("2026-04-29T19:30:00");
+    expect(
+      screen.getByTestId(`${testId}-cell-row-0-col-dateNeeded`),
+    ).toHaveTextContent("2026-04-29T19:30:00");
+    expect(
+      screen.getByTestId(`${testId}-cell-row-0-col-done`),
+    ).toHaveTextContent("true");
+
     const editButton = screen.getByTestId(
       `${testId}-cell-row-0-col-Edit-button`,
     );
@@ -130,6 +152,28 @@ describe("RecommendationRequestTable tests", () => {
       const header = screen.getByTestId(`${testId}-cell-row-0-col-${field}`);
       expect(header).toBeInTheDocument();
     });
+
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent(
+      "1",
+    );
+    expect(
+      screen.getByTestId(`${testId}-cell-row-0-col-requesterEmail`),
+    ).toHaveTextContent("riasingh");
+    expect(
+      screen.getByTestId(`${testId}-cell-row-0-col-professorEmail`),
+    ).toHaveTextContent("riasingh");
+    expect(
+      screen.getByTestId(`${testId}-cell-row-0-col-explanation`),
+    ).toHaveTextContent("test");
+    expect(
+      screen.getByTestId(`${testId}-cell-row-0-col-dateRequested`),
+    ).toHaveTextContent("2026-04-29T19:30:00");
+    expect(
+      screen.getByTestId(`${testId}-cell-row-0-col-dateNeeded`),
+    ).toHaveTextContent("2026-04-29T19:30:00");
+    expect(
+      screen.getByTestId(`${testId}-cell-row-0-col-done`),
+    ).toHaveTextContent("true");
 
     expect(screen.queryByText("Delete")).not.toBeInTheDocument();
     expect(screen.queryByText("Edit")).not.toBeInTheDocument();
@@ -202,6 +246,7 @@ describe("RecommendationRequestTable tests", () => {
     fireEvent.click(deleteButton);
 
     await waitFor(() => expect(axiosMock.history.delete.length).toBe(1));
+    expect(axiosMock.history.delete[0].url).toBe("/api/recommendationrequests");
     expect(axiosMock.history.delete[0].params).toEqual({ id: 1 });
   });
 });
