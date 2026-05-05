@@ -123,7 +123,9 @@ describe("UCSBOrganizationForm tests", () => {
 
     // Clear a non-orgCode field so a validation error fires, confirming the
     // form ran validation — then verify orgCode itself is not marked invalid.
-    const shortInput = await screen.findByTestId(`${testId}-orgTranslationShort`);
+    const shortInput = await screen.findByTestId(
+      `${testId}-orgTranslationShort`,
+    );
     fireEvent.change(shortInput, { target: { value: "" } });
 
     const submitButton = screen.getByTestId(`${testId}-submit`);
