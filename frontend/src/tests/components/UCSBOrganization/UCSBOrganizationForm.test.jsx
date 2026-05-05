@@ -45,6 +45,9 @@ describe("UCSBOrganizationForm tests", () => {
     const orgCodeField = await screen.findByTestId(`${testId}-orgCode`);
     expect(orgCodeField).toBeInTheDocument();
     expect(orgCodeField).not.toBeDisabled();
+
+    // inactive checkbox is present
+    expect(screen.getByTestId(`${testId}-inactive`)).toBeInTheDocument();
   });
 
   test("renders correctly when passing in initialContents (Update mode)", async () => {
@@ -88,6 +91,48 @@ describe("UCSBOrganizationForm tests", () => {
     fireEvent.click(cancelButton);
 
     await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith(-1));
+  });
+
+  test("orgCode field is marked invalid on empty submit in Create mode", async () => {
+    render(
+      <QueryClientProvider client={queryClient}>
+        <Router>
+          <UCSBOrganizationForm />
+        </Router>
+      </QueryClientProvider>,
+    );
+
+    const submitButton = await screen.findByTestId(`${testId}-submit`);
+    fireEvent.click(submitButton);
+
+    // Wait for the error message to appear, then verify field is marked invalid
+    await screen.findByText(/Org Code is required\./);
+    expect(screen.getByTestId(`${testId}-orgCode`)).toHaveClass("is-invalid");
+  });
+
+  test("orgCode field is NOT marked invalid in Update mode", async () => {
+    render(
+      <QueryClientProvider client={queryClient}>
+        <Router>
+          <UCSBOrganizationForm
+            initialContents={ucsbOrganizationFixtures.oneOrganization[0]}
+          />
+        </Router>
+      </QueryClientProvider>,
+    );
+
+    // Clear a non-orgCode field so a validation error fires, confirming the
+    // form ran validation — then verify orgCode itself is not marked invalid.
+    const shortInput = await screen.findByTestId(`${testId}-orgTranslationShort`);
+    fireEvent.change(shortInput, { target: { value: "" } });
+
+    const submitButton = screen.getByTestId(`${testId}-submit`);
+    fireEvent.click(submitButton);
+
+    await screen.findByText(/Organization Translation Short is required\./);
+    expect(screen.getByTestId(`${testId}-orgCode`)).not.toHaveClass(
+      "is-invalid",
+    );
   });
 
   test("that the correct validations are performed", async () => {
@@ -168,6 +213,10 @@ describe("UCSBOrganizationForm tests", () => {
 
     await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
 
+    // orgCode should not be marked invalid when filled correctly in Create mode
+    expect(screen.getByTestId(`${testId}-orgCode`)).not.toHaveClass(
+      "is-invalid",
+    );
     expect(
       screen.queryByText(/Org Code is required\./),
     ).not.toBeInTheDocument();
