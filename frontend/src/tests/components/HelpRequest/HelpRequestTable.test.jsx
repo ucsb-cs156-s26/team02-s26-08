@@ -6,6 +6,19 @@ import { MemoryRouter } from "react-router";
 import { currentUserFixtures } from "fixtures/currentUserFixtures";
 import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
+import {
+  cellToAxiosParamsDelete,
+  onDeleteSuccess,
+} from "main/utils/helpRequestUtils";
+import { toast } from "react-toastify";
+
+vi.mock("react-toastify", async () => {
+  const originalModule = await vi.importActual("react-toastify");
+  return {
+    ...originalModule,
+    toast: vi.fn(),
+  };
+});
 
 const mockedNavigate = vi.fn();
 vi.mock("react-router", async () => {
@@ -182,7 +195,7 @@ describe("HelpRequestTable tests", () => {
     fireEvent.click(editButton);
 
     await waitFor(() =>
-      expect(mockedNavigate).toHaveBeenCalledWith("/helprequests/edit/1"),
+      expect(mockedNavigate).toHaveBeenCalledWith("/helprequest/edit/1"),
     );
   });
 
@@ -217,6 +230,28 @@ describe("HelpRequestTable tests", () => {
     fireEvent.click(deleteButton);
 
     await waitFor(() => expect(axiosMock.history.delete.length).toBe(1));
+    expect(axiosMock.history.delete[0].url).toBe("/api/HelpRequest");
     expect(axiosMock.history.delete[0].params).toEqual({ id: 1 });
+  });
+
+  test("cellToAxiosParamsDelete returns the correct axios params", () => {
+    const cell = { row: { original: { id: 17 } } };
+
+    expect(cellToAxiosParamsDelete(cell)).toEqual({
+      url: "/api/HelpRequest",
+      method: "DELETE",
+      params: { id: 17 },
+    });
+  });
+
+  test("onDeleteSuccess logs and toasts the message", () => {
+    const consoleSpy = vi.spyOn(console, "log").mockImplementation(() => {});
+
+    onDeleteSuccess("HelpRequest deleted");
+
+    expect(consoleSpy).toHaveBeenCalledWith("HelpRequest deleted");
+    expect(toast).toHaveBeenCalledWith("HelpRequest deleted");
+
+    consoleSpy.mockRestore();
   });
 });
