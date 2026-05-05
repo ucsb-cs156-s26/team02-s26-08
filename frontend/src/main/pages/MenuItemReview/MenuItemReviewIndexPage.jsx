@@ -15,8 +15,8 @@ export default function MenuItemReviewIndexPage() {
     status: _status,
   } = useBackend(
     // Stryker disable next-line all : don't test internal caching of React Query
-    ["/api/menuitemreviews/all"],
-    { method: "GET", url: "/api/menuitemreviews/all" },
+    ["/api/MenuItemReview/all"],
+    { method: "GET", url: "/api/MenuItemReview/all" },
     // Stryker disable next-line all : don't test default value of empty list
     [],
   );

@@ -26,7 +26,7 @@ Empty.parameters = {
         status: 200,
       });
     }),
-    http.get("/api/menuitemreviews/all", () => {
+    http.get("/api/MenuItemReview/all", () => {
       return HttpResponse.json([], { status: 200 });
     }),
   ],
@@ -42,7 +42,7 @@ ThreeItemsOrdinaryUser.parameters = {
     http.get("/api/systemInfo", () => {
       return HttpResponse.json(systemInfoFixtures.showingNeither);
     }),
-    http.get("/api/menuitemreviews/all", () => {
+    http.get("/api/MenuItemReview/all", () => {
       return HttpResponse.json(menuItemReviewFixtures.threeMenuItemReviews);
     }),
   ],
@@ -58,10 +58,10 @@ ThreeItemsAdminUser.parameters = {
     http.get("/api/systemInfo", () => {
       return HttpResponse.json(systemInfoFixtures.showingNeither);
     }),
-    http.get("/api/menuitemreviews/all", () => {
+    http.get("/api/MenuItemReview/all", () => {
       return HttpResponse.json(menuItemReviewFixtures.threeMenuItemReviews);
     }),
-    http.delete("/api/menuitemreviews", () => {
+    http.delete("/api/MenuItemReview", () => {
       return HttpResponse.json(
         { message: "MenuItemReview deleted successfully" },
         { status: 200 },

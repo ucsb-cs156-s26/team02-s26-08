@@ -21,7 +21,7 @@ describe("menuItemReviewUtils tests", () => {
     const cell = { row: { original: { id: 17 } } };
     const result = cellToAxiosParamsDelete(cell);
     expect(result).toEqual({
-      url: "/api/menuitemreviews",
+      url: "/api/MenuItemReview",
       method: "DELETE",
       params: { id: 17 },
     });

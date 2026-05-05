@@ -50,7 +50,7 @@ describe("MenuItemReviewIndexPage tests", () => {
 
   test("Renders with Create Button for admin user", async () => {
     setupAdminUser();
-    axiosMock.onGet("/api/menuitemreviews/all").reply(200, []);
+    axiosMock.onGet("/api/MenuItemReview/all").reply(200, []);
 
     render(
       <QueryClientProvider client={queryClient}>
@@ -71,7 +71,7 @@ describe("MenuItemReviewIndexPage tests", () => {
   test("renders three menuItemReviews correctly for regular user", async () => {
     setupUserOnly();
     axiosMock
-      .onGet("/api/menuitemreviews/all")
+      .onGet("/api/MenuItemReview/all")
       .reply(200, menuItemReviewFixtures.threeMenuItemReviews);
 
     render(
@@ -114,7 +114,7 @@ describe("MenuItemReviewIndexPage tests", () => {
   test("renders empty table when backend unavailable, user only", async () => {
     setupUserOnly();
 
-    axiosMock.onGet("/api/menuitemreviews/all").timeout();
+    axiosMock.onGet("/api/MenuItemReview/all").timeout();
 
     const restoreConsole = mockConsole();
 
@@ -132,7 +132,7 @@ describe("MenuItemReviewIndexPage tests", () => {
 
     const errorMessage = console.error.mock.calls[0][0];
     expect(errorMessage).toMatch(
-      "Error communicating with backend via GET on /api/menuitemreviews/all",
+      "Error communicating with backend via GET on /api/MenuItemReview/all",
     );
     restoreConsole();
   });
@@ -141,10 +141,10 @@ describe("MenuItemReviewIndexPage tests", () => {
     setupAdminUser();
 
     axiosMock
-      .onGet("/api/menuitemreviews/all")
+      .onGet("/api/MenuItemReview/all")
       .reply(200, menuItemReviewFixtures.threeMenuItemReviews);
     axiosMock
-      .onDelete("/api/menuitemreviews")
+      .onDelete("/api/MenuItemReview")
       .reply(200, "MenuItemReview with id 1 was deleted");
 
     render(
@@ -179,7 +179,7 @@ describe("MenuItemReviewIndexPage tests", () => {
     await waitFor(() => {
       expect(axiosMock.history.delete.length).toBe(1);
     });
-    expect(axiosMock.history.delete[0].url).toBe("/api/menuitemreviews");
+    expect(axiosMock.history.delete[0].url).toBe("/api/MenuItemReview");
     expect(axiosMock.history.delete[0].params).toEqual({ id: 2 });
   });
 });
