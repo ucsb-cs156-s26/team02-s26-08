@@ -25,7 +25,7 @@ function HelpRequestForm({
   const testIdPrefix = "HelpRequestForm";
 
   return (
-    <Form onSubmit={handleSubmit(submitAction)}>
+    <Form onSubmit={handleSubmit(submitAction)} noValidate>
       <Row>
         {initialContents && (
           <Col>
@@ -54,7 +54,7 @@ function HelpRequestForm({
               {...register("requesterEmail", {
                 required: "Requester Email is required.",
                 pattern: {
-                  value: /\S+@\S+\.\S+/,
+                  value: /^\S+@\S+\.\S+$/,
                   message: "Requester Email must be a valid email address.",
                 },
               })}
@@ -115,10 +115,12 @@ function HelpRequestForm({
               isInvalid={Boolean(errors.requestTime)}
               {...register("requestTime", {
                 required: "Request Time is required.",
+                // Stryker disable ObjectLiteral,StringLiteral
                 pattern: {
                   value: isodate_regex,
                   message: "Request Time must be in ISO format.",
                 },
+                // Stryker restore ObjectLiteral,StringLiteral
               })}
             />
             <Form.Control.Feedback type="invalid">

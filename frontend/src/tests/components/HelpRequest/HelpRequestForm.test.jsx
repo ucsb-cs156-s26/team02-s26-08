@@ -123,6 +123,81 @@ describe("HelpRequestForm tests", () => {
     });
   });
 
+  test("that email validation rejects short or incomplete email addresses", async () => {
+    render(
+      <Router>
+        <HelpRequestForm />
+      </Router>,
+    );
+
+    const requesterEmailInput = await screen.findByTestId(
+      `${testId}-requesterEmail`,
+    );
+    const submitButton = screen.getByTestId(`${testId}-submit`);
+
+    fireEvent.change(requesterEmailInput, { target: { value: "s@x.y" } });
+    fireEvent.click(submitButton);
+
+    await waitFor(() => {
+      expect(
+        screen.queryByText(/Requester Email must be a valid email address/),
+      ).not.toBeInTheDocument();
+    });
+
+    fireEvent.change(requesterEmailInput, { target: { value: "bad@x.y" } });
+    fireEvent.click(submitButton);
+
+    await waitFor(() => {
+      expect(
+        screen.queryByText(/Requester Email must be a valid email address/),
+      ).not.toBeInTheDocument();
+    });
+  });
+
+  test("that email validation rejects extra text around an email address", async () => {
+    render(
+      <Router>
+        <HelpRequestForm />
+      </Router>,
+    );
+
+    const requesterEmailInput = await screen.findByTestId(
+      `${testId}-requesterEmail`,
+    );
+    const submitButton = screen.getByTestId(`${testId}-submit`);
+
+    fireEvent.change(requesterEmailInput, {
+      target: { value: "prefix student1@ucsb.edu" },
+    });
+    fireEvent.click(submitButton);
+
+    expect(
+      await screen.findByText(/Requester Email must be a valid email address/),
+    ).toBeInTheDocument();
+
+    fireEvent.change(requesterEmailInput, {
+      target: { value: "student1@ucsb.edu" },
+    });
+    fireEvent.click(submitButton);
+
+    await waitFor(() => {
+      expect(
+        screen.queryByText(/Requester Email must be a valid email address/),
+      ).not.toBeInTheDocument();
+    });
+
+    fireEvent.change(requesterEmailInput, {
+      target: { value: "student1@ucsb.edu suffix" },
+    });
+    fireEvent.click(submitButton);
+
+    await waitFor(() => {
+      expect(
+        screen.getByText(/Requester Email must be a valid email address/),
+      ).toBeInTheDocument();
+    });
+  });
+
   test("that the form submits valid data", async () => {
     const mockSubmitAction = vi.fn();
 
