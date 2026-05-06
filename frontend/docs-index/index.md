@@ -15,6 +15,9 @@ tbody tr:nth-child(even) {background-color: #f2f2f2;}
 * Source Repo: <https://github.com/{{site.repo}}>
   * gh-pages: <https://github.com/{{site.repo}}/tree/gh-pages>
 * Github Actions: <https://github.com/{{site.repo}}/actions>
+* Deployed Apps:
+  * Prod: <https://team02.dokku-08.cs.ucsb.edu/>
+  * QA: <https://team02-qa.dokku-08.cs.ucsb.edu>
 
 ## Documentation
 
