@@ -173,7 +173,7 @@ describe("MenuItemReviewTable tests", () => {
     fireEvent.click(editButton);
 
     await waitFor(() =>
-      expect(mockedNavigate).toHaveBeenCalledWith("/menuitemreviews/edit/2"),
+      expect(mockedNavigate).toHaveBeenCalledWith("/menuitemreview/edit/2"),
     );
   });
 
@@ -182,7 +182,7 @@ describe("MenuItemReviewTable tests", () => {
 
     const axiosMock = new AxiosMockAdapter(axios);
     axiosMock
-      .onDelete("/api/menuitemreviews")
+      .onDelete("/api/MenuItemReview")
       .reply(200, { message: "MenuItemReview deleted" });
 
     render(

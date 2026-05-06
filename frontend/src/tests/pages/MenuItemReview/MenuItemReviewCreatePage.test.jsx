@@ -72,7 +72,7 @@ describe("MenuItemReviewCreatePage tests", () => {
       comments: "Great food!",
     };
 
-    axiosMock.onPost("/api/menuitemreviews/post").reply(202, menuItemReview);
+    axiosMock.onPost("/api/MenuItemReview/post").reply(202, menuItemReview);
 
     render(
       <QueryClientProvider client={queryClient}>
