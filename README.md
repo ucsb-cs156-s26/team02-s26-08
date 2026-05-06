@@ -6,7 +6,7 @@ TODO: Add a link to the deployed Dokku app for your team here, e.g.
 
 Deployments:
 
-* Prod: <https://team02-riasingh455-dev.dokku-08.cs.ucsb.edu>
+* Prod: <https://team02.dokku-08.cs.ucsb.edu/>
 * QA: <https://team02-qa.dokku-08.cs.ucsb.edu>
 
 
