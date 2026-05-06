@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-s26/team02-s26-08
 owner: ucsb-cs156-s26
 repo_name: team02-s26-08
-pull_requests: []
+pull_requests: [{"author":{"id":"U_kgDOCWXSsA","is_bot":false,"login":"ccabacungan","name":""},"headRefName":"submission-readiness-cleanup","number":110,"title":"Prepare project for submission","url":"https://github.com/ucsb-cs156-s26/team02-s26-08/pull/110"}]
