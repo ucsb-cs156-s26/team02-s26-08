@@ -255,7 +255,23 @@
 <a name='L190'></a><a href='#L190'>190</a>
 <a name='L191'></a><a href='#L191'>191</a>
 <a name='L192'></a><a href='#L192'>192</a>
-<a name='L193'></a><a href='#L193'>193</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L193'></a><a href='#L193'>193</a>
+<a name='L194'></a><a href='#L194'>194</a>
+<a name='L195'></a><a href='#L195'>195</a>
+<a name='L196'></a><a href='#L196'>196</a>
+<a name='L197'></a><a href='#L197'>197</a>
+<a name='L198'></a><a href='#L198'>198</a>
+<a name='L199'></a><a href='#L199'>199</a>
+<a name='L200'></a><a href='#L200'>200</a>
+<a name='L201'></a><a href='#L201'>201</a>
+<a name='L202'></a><a href='#L202'>202</a>
+<a name='L203'></a><a href='#L203'>203</a>
+<a name='L204'></a><a href='#L204'>204</a>
+<a name='L205'></a><a href='#L205'>205</a>
+<a name='L206'></a><a href='#L206'>206</a>
+<a name='L207'></a><a href='#L207'>207</a>
+<a name='L208'></a><a href='#L208'>208</a>
+<a name='L209'></a><a href='#L209'>209</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -282,6 +298,22 @@
 <span class="cline-any cline-yes">38x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">38x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -498,6 +530,9 @@ function HelpRequestForm({
             &lt;Form.Control
               data-testid={testIdPrefix + "-requesterEmail"}
               id="requesterEmail"
+              name="requesterEmail"
+              aria-label="requesterEmail"
+              placeholder="requesterEmail"
               type="email"
               isInvalid={Boolean(errors.requesterEmail)}
               {...register("requesterEmail", {
@@ -520,6 +555,9 @@ function HelpRequestForm({
             &lt;Form.Control
               data-testid={testIdPrefix + "-teamId"}
               id="teamId"
+              name="teamId"
+              aria-label="teamId"
+              placeholder="teamId"
               type="text"
               isInvalid={Boolean(errors.teamId)}
               {...register("teamId", {
@@ -542,6 +580,9 @@ function HelpRequestForm({
             &lt;Form.Control
               data-testid={testIdPrefix + "-tableOrBreakoutRoom"}
               id="tableOrBreakoutRoom"
+              name="tableOrBreakoutRoom"
+              aria-label="tableOrBreakoutRoom"
+              placeholder="tableOrBreakoutRoom"
               type="text"
               isInvalid={Boolean(errors.tableOrBreakoutRoom)}
               {...register("tableOrBreakoutRoom", {
@@ -560,6 +601,8 @@ function HelpRequestForm({
             &lt;Form.Control
               data-testid={testIdPrefix + "-requestTime"}
               id="requestTime"
+              name="requestTime"
+              aria-label="requestTime"
               type="datetime-local"
               isInvalid={Boolean(errors.requestTime)}
               {...register("requestTime", {
@@ -586,6 +629,9 @@ function HelpRequestForm({
             &lt;Form.Control
               data-testid={testIdPrefix + "-explanation"}
               id="explanation"
+              name="explanation"
+              aria-label="explanation"
+              placeholder="explanation"
               as="textarea"
               isInvalid={Boolean(errors.explanation)}
               {...register("explanation", {
@@ -604,6 +650,8 @@ function HelpRequestForm({
             &lt;Form.Select
               data-testid={testIdPrefix + "-solved"}
               id="solved"
+              name="solved"
+              aria-label="solved"
               isInvalid={Boolean(errors.solved)}
               {...register("solved", {
                 required: "Solved is required.",
@@ -646,7 +694,7 @@ export default HelpRequestForm;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-05-07T00:12:09.291Z
+                at 2026-05-07T01:13:32.500Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
