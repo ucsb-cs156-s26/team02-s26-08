@@ -123,14 +123,12 @@ export default function AppNavbar({
   currentUrl = window.location.href,
 }) {
   var oauthLogin = systemInfo?.oauthLogin || "/oauth2/authorization/google";
-
   return (
     <>
       {(currentUrl.startsWith("http://localhost:3000") ||
         currentUrl.startsWith("http://127.0.0.1:3000")) && (
         <AppNavbarLocalhost url={currentUrl} />
       )}
-
       <Navbar
         expand="xl"
         variant="dark"
@@ -142,28 +140,15 @@ export default function AppNavbar({
           <Navbar.Brand as={Link} to="/">
             team02
           </Navbar.Brand>
-
           <Navbar.Toggle />
-
-          <>
-            {/* be sure that each NavDropdown has a unique id and data-testid  */}
-          </>
-
           <Navbar.Collapse className="justify-content-between">
-            <Nav className="me-auto">
+            <Nav className="mr-auto">
               {systemInfo?.springH2ConsoleEnabled && (
-                <>
-                  <Nav.Link href="/h2-console">H2Console</Nav.Link>
-                </>
+                <Nav.Link href="/h2-console">H2Console</Nav.Link>
               )}
               {systemInfo?.showSwaggerUILink && (
-                <>
-                  <Nav.Link href="/swagger-ui/index.html">Swagger</Nav.Link>
-                </>
+                <Nav.Link href="/swagger-ui/index.html">Swagger</Nav.Link>
               )}
-            </Nav>
-
-            <Nav className="mr-auto">
               {hasRole(currentUser, "ROLE_ADMIN") && (
                 <NavDropdown
                   title="Admin"
@@ -204,7 +189,6 @@ export default function AppNavbar({
                 <></>
               )}
             </Nav>
-
             <Nav className="ml-auto">
               {currentUser && currentUser.loggedIn ? (
                 <>
