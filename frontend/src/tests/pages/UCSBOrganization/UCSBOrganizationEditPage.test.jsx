@@ -131,6 +131,7 @@ describe("UCSBOrganizationEditPage tests", () => {
       const orgTranslationField = screen.getByTestId(
         "UCSBOrganizationForm-orgTranslation",
       );
+      const inactiveField = screen.getByTestId("UCSBOrganizationForm-inactive");
       const submitButton = screen.getByTestId("UCSBOrganizationForm-submit");
 
       expect(orgCodeField).toBeInTheDocument();
@@ -139,6 +140,8 @@ describe("UCSBOrganizationEditPage tests", () => {
       expect(orgTranslationShortField).toHaveValue("Zeta Phi Rho");
       expect(orgTranslationField).toBeInTheDocument();
       expect(orgTranslationField).toHaveValue("Zeta Phi Rho Fraternity");
+      expect(inactiveField).toBeInTheDocument();
+      expect(inactiveField).toHaveValue("false");
 
       expect(submitButton).toHaveTextContent("Update");
 

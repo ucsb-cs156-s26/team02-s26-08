@@ -34,7 +34,7 @@ export default function UCSBOrganizationEditPage({ storybook = false }) {
     data: {
       orgTranslationShort: organization.orgTranslationShort,
       orgTranslation: organization.orgTranslation,
-      inactive: organization.inactive,
+      inactive: organization.inactive === "true",
     },
   });
 
@@ -67,7 +67,10 @@ export default function UCSBOrganizationEditPage({ storybook = false }) {
           <UCSBOrganizationForm
             submitAction={onSubmit}
             buttonLabel={"Update"}
-            initialContents={organization}
+            initialContents={{
+              ...organization,
+              inactive: String(organization.inactive),
+            }}
           />
         )}
       </div>
