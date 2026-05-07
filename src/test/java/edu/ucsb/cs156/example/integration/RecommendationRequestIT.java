@@ -102,7 +102,13 @@ public class RecommendationRequestIT {
     MvcResult response =
         mockMvc
             .perform(
-                post("/api/recommendationrequests/post?requesterEmail=firstDayOfClasses")
+                post("/api/recommendationrequests/post")
+                    .param("requesterEmail", "firstDayOfClasses")
+                    .param("professorEmail", "20222")
+                    .param("explanation", "20222")
+                    .param("dateRequested", "2022-01-03T00:00:00")
+                    .param("dateNeeded", "2022-01-03T00:00:00")
+                    .param("done", "true")
                     .with(csrf()))
             .andExpect(status().isOk())
             .andReturn();
