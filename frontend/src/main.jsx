@@ -14,7 +14,7 @@ root.render(
     <BrowserRouter>
       {/* Wrap your app with BrowserRouter */}
       <QueryClientProvider client={queryClient}>
-        <ToastContainer />
+        {import.meta.env.VITE_SILENCE_TOASTIFY !== "true" && <ToastContainer />}
         <App />
       </QueryClientProvider>
     </BrowserRouter>

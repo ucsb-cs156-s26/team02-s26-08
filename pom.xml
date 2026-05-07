@@ -596,6 +596,9 @@
                 </goals>
                 <configuration>
                   <arguments>run build</arguments>
+                  <environmentVariables>
+                    <VITE_SILENCE_TOASTIFY>true</VITE_SILENCE_TOASTIFY>
+                  </environmentVariables>
                 </configuration>
               </execution>
             </executions>
