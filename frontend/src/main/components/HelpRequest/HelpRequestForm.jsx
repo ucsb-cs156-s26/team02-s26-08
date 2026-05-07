@@ -49,6 +49,9 @@ function HelpRequestForm({
             <Form.Control
               data-testid={testIdPrefix + "-requesterEmail"}
               id="requesterEmail"
+              name="requesterEmail"
+              aria-label="requesterEmail"
+              placeholder="requesterEmail"
               type="email"
               isInvalid={Boolean(errors.requesterEmail)}
               {...register("requesterEmail", {
@@ -71,6 +74,9 @@ function HelpRequestForm({
             <Form.Control
               data-testid={testIdPrefix + "-teamId"}
               id="teamId"
+              name="teamId"
+              aria-label="teamId"
+              placeholder="teamId"
               type="text"
               isInvalid={Boolean(errors.teamId)}
               {...register("teamId", {
@@ -93,6 +99,9 @@ function HelpRequestForm({
             <Form.Control
               data-testid={testIdPrefix + "-tableOrBreakoutRoom"}
               id="tableOrBreakoutRoom"
+              name="tableOrBreakoutRoom"
+              aria-label="tableOrBreakoutRoom"
+              placeholder="tableOrBreakoutRoom"
               type="text"
               isInvalid={Boolean(errors.tableOrBreakoutRoom)}
               {...register("tableOrBreakoutRoom", {
@@ -111,6 +120,8 @@ function HelpRequestForm({
             <Form.Control
               data-testid={testIdPrefix + "-requestTime"}
               id="requestTime"
+              name="requestTime"
+              aria-label="requestTime"
               type="datetime-local"
               isInvalid={Boolean(errors.requestTime)}
               {...register("requestTime", {
@@ -137,6 +148,9 @@ function HelpRequestForm({
             <Form.Control
               data-testid={testIdPrefix + "-explanation"}
               id="explanation"
+              name="explanation"
+              aria-label="explanation"
+              placeholder="explanation"
               as="textarea"
               isInvalid={Boolean(errors.explanation)}
               {...register("explanation", {
@@ -155,6 +169,8 @@ function HelpRequestForm({
             <Form.Select
               data-testid={testIdPrefix + "-solved"}
               id="solved"
+              name="solved"
+              aria-label="solved"
               isInvalid={Boolean(errors.solved)}
               {...register("solved", {
                 required: "Solved is required.",

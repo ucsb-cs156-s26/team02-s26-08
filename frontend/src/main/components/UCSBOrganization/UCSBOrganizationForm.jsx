@@ -103,6 +103,9 @@ function UCSBOrganizationForm({
             <Form.Check
               data-testid={testIdPrefix + "-inactive"}
               id="inactive"
+              name="inactive"
+              aria-label="inactive"
+              label="inactive"
               type="checkbox"
               {...register("inactive")}
             />
