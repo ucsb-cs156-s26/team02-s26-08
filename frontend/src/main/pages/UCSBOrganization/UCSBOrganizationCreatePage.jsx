@@ -6,13 +6,13 @@ import { toast } from "react-toastify";
 
 export default function UCSBOrganizationCreatePage({ storybook = false }) {
   const objectToAxiosParams = (organization) => ({
-    url: "/api/UCSBOrganization/post",
+    url: "/api/ucsborganization/post",
     method: "POST",
     params: {
       orgCode: organization.orgCode,
       orgTranslationShort: organization.orgTranslationShort,
       orgTranslation: organization.orgTranslation,
-      inactive: organization.inactive === "true",
+      inactive: organization.inactive,
     },
   });
 
@@ -24,7 +24,7 @@ export default function UCSBOrganizationCreatePage({ storybook = false }) {
     objectToAxiosParams,
     { onSuccess },
     // Stryker disable next-line all : hard to set up test for caching
-    ["/api/UCSBOrganization/all"],
+    ["/api/ucsborganization/all"],
   );
 
   const { isSuccess } = mutation;

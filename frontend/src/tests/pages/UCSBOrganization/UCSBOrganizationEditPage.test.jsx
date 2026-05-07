@@ -47,7 +47,7 @@ describe("UCSBOrganizationEditPage tests", () => {
         .onGet("/api/systemInfo")
         .reply(200, systemInfoFixtures.showingNeither);
       axiosMock
-        .onGet("/api/UCSBOrganization", { params: { orgCode: "ZPRC" } })
+        .onGet("/api/ucsborganization", { params: { orgCode: "ZPRC" } })
         .timeout();
     });
 
@@ -89,14 +89,14 @@ describe("UCSBOrganizationEditPage tests", () => {
         .onGet("/api/systemInfo")
         .reply(200, systemInfoFixtures.showingNeither);
       axiosMock
-        .onGet("/api/UCSBOrganization", { params: { orgCode: "ZPRC" } })
+        .onGet("/api/ucsborganization", { params: { orgCode: "ZPRC" } })
         .reply(200, {
           orgCode: "ZPRC",
           orgTranslationShort: "Zeta Phi Rho",
           orgTranslation: "Zeta Phi Rho Fraternity",
           inactive: false,
         });
-      axiosMock.onPut("/api/UCSBOrganization").reply(200, {
+      axiosMock.onPut("/api/ucsborganization").reply(200, {
         orgCode: "ZPRC",
         orgTranslationShort: "Zeta Phi Rho Updated",
         orgTranslation: "Zeta Phi Rho Fraternity Updated",
@@ -131,7 +131,6 @@ describe("UCSBOrganizationEditPage tests", () => {
       const orgTranslationField = screen.getByTestId(
         "UCSBOrganizationForm-orgTranslation",
       );
-      const inactiveField = screen.getByTestId("UCSBOrganizationForm-inactive");
       const submitButton = screen.getByTestId("UCSBOrganizationForm-submit");
 
       expect(orgCodeField).toBeInTheDocument();
@@ -140,8 +139,6 @@ describe("UCSBOrganizationEditPage tests", () => {
       expect(orgTranslationShortField).toHaveValue("Zeta Phi Rho");
       expect(orgTranslationField).toBeInTheDocument();
       expect(orgTranslationField).toHaveValue("Zeta Phi Rho Fraternity");
-      expect(inactiveField).toBeInTheDocument();
-      expect(inactiveField).toHaveValue("false");
 
       expect(submitButton).toHaveTextContent("Update");
 

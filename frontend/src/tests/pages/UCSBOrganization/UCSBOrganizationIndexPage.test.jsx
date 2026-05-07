@@ -50,7 +50,7 @@ describe("UCSBOrganizationIndexPage tests", () => {
 
   test("Renders with Create Button for admin user", async () => {
     setupAdminUser();
-    axiosMock.onGet("/api/UCSBOrganization/all").reply(200, []);
+    axiosMock.onGet("/api/ucsborganization/all").reply(200, []);
 
     render(
       <QueryClientProvider client={queryClient}>
@@ -71,7 +71,7 @@ describe("UCSBOrganizationIndexPage tests", () => {
   test("renders three organizations correctly for regular user", async () => {
     setupUserOnly();
     axiosMock
-      .onGet("/api/UCSBOrganization/all")
+      .onGet("/api/ucsborganization/all")
       .reply(200, ucsbOrganizationFixtures.threeOrganizations);
 
     render(
@@ -114,7 +114,7 @@ describe("UCSBOrganizationIndexPage tests", () => {
   test("renders empty table when backend unavailable, user only", async () => {
     setupUserOnly();
 
-    axiosMock.onGet("/api/UCSBOrganization/all").timeout();
+    axiosMock.onGet("/api/ucsborganization/all").timeout();
 
     const restoreConsole = mockConsole();
 
@@ -132,7 +132,7 @@ describe("UCSBOrganizationIndexPage tests", () => {
 
     const errorMessage = console.error.mock.calls[0][0];
     expect(errorMessage).toMatch(
-      "Error communicating with backend via GET on /api/UCSBOrganization/all",
+      "Error communicating with backend via GET on /api/ucsborganization/all",
     );
     restoreConsole();
   });
@@ -141,10 +141,10 @@ describe("UCSBOrganizationIndexPage tests", () => {
     setupAdminUser();
 
     axiosMock
-      .onGet("/api/UCSBOrganization/all")
+      .onGet("/api/ucsborganization/all")
       .reply(200, ucsbOrganizationFixtures.threeOrganizations);
     axiosMock
-      .onDelete("/api/UCSBOrganization")
+      .onDelete("/api/ucsborganization")
       .reply(200, "UCSBOrganization with orgCode ZPRC was deleted");
 
     render(
@@ -181,7 +181,7 @@ describe("UCSBOrganizationIndexPage tests", () => {
     await waitFor(() => {
       expect(axiosMock.history.delete.length).toBe(1);
     });
-    expect(axiosMock.history.delete[0].url).toBe("/api/UCSBOrganization");
+    expect(axiosMock.history.delete[0].url).toBe("/api/ucsborganization");
     expect(axiosMock.history.delete[0].params).toEqual({ orgCode: "ZPRC" });
   });
 });

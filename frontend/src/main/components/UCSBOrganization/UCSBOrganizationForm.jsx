@@ -12,7 +12,7 @@ function UCSBOrganizationForm({
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm({ defaultValues: initialContents || { inactive: "false" } });
+  } = useForm({ defaultValues: initialContents || {} });
   // Stryker restore all
 
   const navigate = useNavigate();
@@ -100,18 +100,12 @@ function UCSBOrganizationForm({
         <Col>
           <Form.Group className="mb-3">
             <Form.Label htmlFor="inactive">Inactive</Form.Label>
-            <Form.Control
+            <Form.Check
               data-testid={testIdPrefix + "-inactive"}
               id="inactive"
-              type="text"
-              isInvalid={Boolean(errors.inactive)}
-              {...register("inactive", {
-                required: "Inactive is required.",
-              })}
+              type="checkbox"
+              {...register("inactive")}
             />
-            <Form.Control.Feedback type="invalid">
-              {errors.inactive?.message}
-            </Form.Control.Feedback>
           </Form.Group>
         </Col>
       </Row>
