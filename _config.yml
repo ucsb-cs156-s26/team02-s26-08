@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-s26/team02-s26-08
 owner: ucsb-cs156-s26
 repo_name: team02-s26-08
-pull_requests: []
+pull_requests: [{"author":{"id":"U_kgDOCVHlaQ","is_bot":false,"login":"riasingh455","name":""},"headRefName":"recommend-e2e","number":130,"title":"added the e2e test for recommend","url":"https://github.com/ucsb-cs156-s26/team02-s26-08/pull/130"}]
