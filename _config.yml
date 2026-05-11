@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-s26/team02-s26-08
 owner: ucsb-cs156-s26
 repo_name: team02-s26-08
-pull_requests: [{"author":{"id":"U_kgDOCVHSBA","is_bot":false,"login":"dev-anj","name":"Anjali Dev"},"headRefName":"menuitemreview-integration-tests","number":133,"title":"add integration test for MenuItemReview controller endpoints","url":"https://github.com/ucsb-cs156-s26/team02-s26-08/pull/133"}]
+pull_requests: [{"author":{"id":"U_kgDOCVHSBA","is_bot":false,"login":"dev-anj","name":"Anjali Dev"},"headRefName":"menuitemreview-e2e-tests","number":134,"title":"add end to end tests for MenuItemReview","url":"https://github.com/ucsb-cs156-s26/team02-s26-08/pull/134"},{"author":{"id":"U_kgDOCVHSBA","is_bot":false,"login":"dev-anj","name":"Anjali Dev"},"headRefName":"menuitemreview-integration-tests","number":133,"title":"add integration test for MenuItemReview controller endpoints","url":"https://github.com/ucsb-cs156-s26/team02-s26-08/pull/133"}]
